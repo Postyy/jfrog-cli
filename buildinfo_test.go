@@ -287,6 +287,7 @@ func TestBuildAppend(t *testing.T) {
 
 func TestBuildAddDependencies(t *testing.T) {
 	initArtifactoryTest(t)
+	createJfrogHomeConfig(t, true)
 	// Clean old build tests if exists
 	inttestutils.DeleteBuild(serverDetails.ArtifactoryUrl, tests.RtBuildName1, artHttpDetails)
 	buildAddDepsRemoteSpec, err := tests.CreateSpec(tests.BuildAddDepsRemoteSpec)
