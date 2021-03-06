@@ -22,7 +22,7 @@ require (
 
 replace github.com/jfrog/jfrog-client-go => github.com/jfrog/jfrog-client-go dev
 
-replace github.com/jfrog/jfrog-cli-core => github.com/or-geva/jfrog-cli-core dev
+replace github.com/jfrog/jfrog-cli-core => github.com/or-geva/jfrog-cli-core remoteBad
 
 // replace github.com/jfrog/gocmd => github.com/jfrog/gocmd master
 
