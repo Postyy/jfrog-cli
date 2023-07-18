@@ -170,36 +170,37 @@ const (
 	module      = "module"
 
 	// Generic commands flags
-	exclusions              = "exclusions"
-	recursive               = "recursive"
-	flat                    = "flat"
-	build                   = "build"
-	excludeArtifacts        = "exclude-artifacts"
-	includeDeps             = "include-deps"
-	regexpFlag              = "regexp"
-	retries                 = "retries"
-	retryWaitTime           = "retry-wait-time"
-	dryRun                  = "dry-run"
-	explode                 = "explode"
-	bypassArchiveInspection = "bypass-archive-inspection"
-	includeDirs             = "include-dirs"
-	props                   = "props"
-	targetProps             = "target-props"
-	excludeProps            = "exclude-props"
-	failNoOp                = "fail-no-op"
-	threads                 = "threads"
-	syncDeletes             = "sync-deletes"
-	quiet                   = "quiet"
-	bundle                  = "bundle"
-	publicGpgKey            = "gpg-key"
-	archiveEntries          = "archive-entries"
-	detailedSummary         = "detailed-summary"
-	archive                 = "archive"
-	syncDeletesQuiet        = syncDeletes + "-" + quiet
-	antFlag                 = "ant"
-	fromRt                  = "from-rt"
-	transitive              = "transitive"
-	Status                  = "status"
+	exclusions                 = "exclusions"
+	recursive                  = "recursive"
+	flat                       = "flat"
+	build                      = "build"
+	excludeArtifacts           = "exclude-artifacts"
+	includeDeps                = "include-deps"
+	regexpFlag                 = "regexp"
+	retries                    = "retries"
+	retryWaitTime              = "retry-wait-time"
+	dryRun                     = "dry-run"
+	explode                    = "explode"
+	bypassArchiveInspection    = "bypass-archive-inspection"
+	includeDirs                = "include-dirs"
+	props                      = "props"
+	targetProps                = "target-props"
+	excludeProps               = "exclude-props"
+	failNoOp                   = "fail-no-op"
+	threads                    = "threads"
+	syncDeletes                = "sync-deletes"
+	quiet                      = "quiet"
+	bundle                     = "bundle"
+	publicGpgKey               = "gpg-key"
+	archiveEntries             = "archive-entries"
+	detailedSummary            = "detailed-summary"
+	archive                    = "archive"
+	syncDeletesQuiet           = syncDeletes + "-" + quiet
+	antFlag                    = "ant"
+	fromRt                     = "from-rt"
+	transitive                 = "transitive"
+	Status                     = "status"
+	skipExcludeBasePatternFlag = "skip-exclude-base-pattern"
 
 	// Config flags
 	interactive   = "interactive"
@@ -208,18 +209,19 @@ const (
 	Overwrite     = "overwrite"
 
 	// Unique upload flags
-	uploadPrefix      = "upload-"
-	uploadExclusions  = uploadPrefix + exclusions
-	uploadRecursive   = uploadPrefix + recursive
-	uploadFlat        = uploadPrefix + flat
-	uploadRegexp      = uploadPrefix + regexpFlag
-	uploadExplode     = uploadPrefix + explode
-	uploadTargetProps = uploadPrefix + targetProps
-	uploadSyncDeletes = uploadPrefix + syncDeletes
-	uploadArchive     = uploadPrefix + archive
-	deb               = "deb"
-	symlinks          = "symlinks"
-	uploadAnt         = uploadPrefix + antFlag
+	uploadPrefix              = "upload-"
+	uploadExclusions          = uploadPrefix + exclusions
+	uploadRecursive           = uploadPrefix + recursive
+	uploadFlat                = uploadPrefix + flat
+	uploadRegexp              = uploadPrefix + regexpFlag
+	uploadExplode             = uploadPrefix + explode
+	uploadTargetProps         = uploadPrefix + targetProps
+	uploadSyncDeletes         = uploadPrefix + syncDeletes
+	uploadArchive             = uploadPrefix + archive
+	deb                       = "deb"
+	symlinks                  = "symlinks"
+	uploadAnt                 = uploadPrefix + antFlag
+	skipExcludeBasePatternAnt = uploadPrefix + skipExcludeBasePatternFlag
 
 	// Unique download flags
 	downloadPrefix       = "download-"
@@ -732,6 +734,10 @@ var flagsMap = map[string]cli.Flag{
 	uploadAnt: cli.BoolFlag{
 		Name:  antFlag,
 		Usage: "[Default: false] Set to true to use an ant pattern instead of wildcards expression to collect files to upload.` `",
+	},
+	skipExcludeBasePatternAnt: cli.BoolFlag{
+		Name:  skipExcludeBasePatternFlag,
+		Usage: "[Default: false] Set to true to skip exclude for the base pattern.` `",
 	},
 	dryRun: cli.BoolFlag{
 		Name:  dryRun,
@@ -1620,7 +1626,7 @@ var commandFlags = map[string][]string{
 		ClientCertKeyPath, specFlag, specVars, buildName, buildNumber, module, uploadExclusions, deb,
 		uploadRecursive, uploadFlat, uploadRegexp, retries, retryWaitTime, dryRun, uploadExplode, symlinks, includeDirs,
 		failNoOp, threads, uploadSyncDeletes, syncDeletesQuiet, InsecureTls, detailedSummary, project,
-		uploadAnt, uploadArchive,
+		uploadAnt, uploadArchive, skipExcludeBasePatternAnt,
 	},
 	Download: {
 		url, user, password, accessToken, sshPassphrase, sshKeyPath, serverId, ClientCertPath,

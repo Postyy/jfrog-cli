@@ -4,7 +4,8 @@
       "pattern": "testdata/a/**",
       "ant": "true",
       "target": "${REPO1}",
-      "include-dirs": "true",
+      "includeDirs": "true",
+      "skipExcludeBasePattern": "true",
       "exclusions": ["testdata/a/b/**"]
     }
   ]

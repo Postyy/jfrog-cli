@@ -612,6 +612,7 @@ func OverrideFieldsIfSet(spec *speccore.File, c *cli.Context) {
 	overrideStringIfSet(&spec.Symlinks, c, "symlinks")
 	overrideStringIfSet(&spec.Transitive, c, "transitive")
 	overrideStringIfSet(&spec.PublicGpgKey, c, "gpg-key")
+	overrideStringIfSet(&spec.SkipExcludeBasePattern, c, "skip-exclude-base-pattern")
 }
 
 func FixWinPathsForFileSystemSourcedCmds(uploadSpec *speccore.SpecFiles, c *cli.Context) {

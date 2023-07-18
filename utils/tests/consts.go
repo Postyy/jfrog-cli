@@ -252,6 +252,17 @@ func GetExpectedExcludeUpload() []string {
 		RtRepo1 + "/",
 	}
 }
+func GetExpectedExcludeUploadWithSkipExcludeBasePattern() []string {
+	return []string{
+		RtRepo1 + "/a2.in",
+		RtRepo1 + "/a3.in",
+		RtRepo1 + "/a1.in",
+		RtRepo1 + "/b",
+		RtRepo1 + "/d",
+		RtRepo1 + "/",
+	}
+}
+
 func GetExpectedExcludeUploadPart2() []string {
 	return []string{
 		RtRepo1 + "/a2.in",
@@ -259,15 +270,18 @@ func GetExpectedExcludeUploadPart2() []string {
 		RtRepo1 + "/a1.in",
 		RtRepo1 + "/b3.in",
 		RtRepo1 + "/c",
+		RtRepo1 + "/d",
 		RtRepo1 + "/",
 	}
 }
+
 func GetExpectedExcludeUploadIncludeDir() []string {
 	return []string{
 		RtRepo1 + "/a2.in",
 		RtRepo1 + "/a3.in",
 		RtRepo1 + "/a1.in",
 		RtRepo1 + "/b",
+		RtRepo1 + "/d",
 		RtRepo1 + "/",
 	}
 }

@@ -1255,7 +1255,6 @@ func uploadCmd(c *cli.Context) (err error) {
 	if !(c.NArg() == 2 || (c.NArg() == 0 && c.IsSet("spec"))) {
 		return cliutils.WrongNumberOfArgumentsHandler(c)
 	}
-
 	var uploadSpec *spec.SpecFiles
 	if c.IsSet("spec") {
 		uploadSpec, err = cliutils.GetFileSystemSpec(c)
@@ -2659,6 +2658,7 @@ func createDefaultUploadSpec(c *cli.Context) (*spec.SpecFiles, error) {
 		Target(strings.TrimPrefix(c.Args().Get(1), "/")).
 		Symlinks(c.Bool("symlinks")).
 		Archive(c.String("archive")).
+		SkipExcludeBasePattern(c.Bool("skip-exclude-base-pattern")).
 		BuildSpec(), nil
 }
 
