@@ -171,8 +171,10 @@ func TestArtifactoryExcludeUpload(t *testing.T) {
 		{tests.UploadExcludeIncludeDirs, tests.GetExpectedExcludeUploadIncludeDir()},
 		{tests.UploadExcludeIncludeDir, tests.GetExpectedExcludeUpload()},
 		{tests.UploadExcludeIncludeDirsFlat, tests.GetExpectedExcludeUploadIncludeDir()},
-		{tests.UploadExcludeIncludeDirAntPattern, tests.GetExpectedExcludeUploadWithSkipExcludeBasePattern()},
-		{tests.UploadExcludeIncludeDirAntPattern2, tests.GetExpectedExcludeUploadWithSkipExcludeBasePattern()},
+		{tests.UploadAntExcludeContentOnly, tests.GetExpectedExcludeUploadWithAntExcludeContentOnly()},
+		{tests.UploadAntExcludeContentOnly2, tests.GetExpectedExcludeUploadWithAntExcludeContentOnly()},
+		{tests.UploadAntExcludeContentOnly3, tests.GetExpectedExcludeUploadWithAntExcludeContentOnly2()},
+		{tests.UploadAntExcludeContentOnly4, tests.GetExpectedExcludeUploadWithAntExcludeContentOnly2()},
 	}
 	for _, d := range testData {
 		initArtifactoryTest(t, "")

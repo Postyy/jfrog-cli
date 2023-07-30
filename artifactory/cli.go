@@ -2658,7 +2658,7 @@ func createDefaultUploadSpec(c *cli.Context) (*spec.SpecFiles, error) {
 		Target(strings.TrimPrefix(c.Args().Get(1), "/")).
 		Symlinks(c.Bool("symlinks")).
 		Archive(c.String("archive")).
-		SkipExcludeBasePattern(c.Bool("skip-exclude-base-pattern")).
+		AntExcludeContentOnly(c.Bool("ant-exclude-content-only")).
 		BuildSpec(), nil
 }
 

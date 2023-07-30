@@ -1,11 +1,12 @@
 package tests
 
 import (
+	"path/filepath"
+
 	"github.com/jfrog/jfrog-cli-core/v2/artifactory/utils"
 	"github.com/jfrog/jfrog-client-go/artifactory/services"
 	servicesUtils "github.com/jfrog/jfrog-client-go/artifactory/services/utils"
 	clientUtils "github.com/jfrog/jfrog-client-go/utils"
-	"path/filepath"
 )
 
 const (
@@ -124,8 +125,10 @@ const (
 	UploadExcludeRepoContent                              = "upload_exclude_repo_content.json"
 	UploadExcludeRepoContentPart2                         = "upload_exclude_repo_content_part_2.json"
 	UploadExcludeIncludeDirs                              = "upload_exclude_include_dirs.json"
-	UploadExcludeIncludeDirAntPattern                     = "upload_exclude_include_dir_ant_pattern.json"
-	UploadExcludeIncludeDirAntPattern2                    = "upload_exclude_include_dir_ant_pattern2.json"
+	UploadAntExcludeContentOnly                           = "upload_ant_exclude_content_only.json"
+	UploadAntExcludeContentOnly2                          = "upload_ant_exclude_content_only2.json"
+	UploadAntExcludeContentOnly3                          = "upload_ant_exclude_content_only3.json"
+	UploadAntExcludeContentOnly4                          = "upload_ant_exclude_content_only4.json"
 	UploadExcludeIncludeDir                               = "upload_exclude_include_dir.json"
 	UploadExcludeIncludeDirsFlat                          = "upload_exclude_include_dirs_flat.json"
 	UploadSpecExclude                                     = "upload_spec_exclude.json"
@@ -252,13 +255,29 @@ func GetExpectedExcludeUpload() []string {
 		RtRepo1 + "/",
 	}
 }
-func GetExpectedExcludeUploadWithSkipExcludeBasePattern() []string {
+func GetExpectedExcludeUploadWithAntExcludeContentOnly() []string {
 	return []string{
 		RtRepo1 + "/a2.in",
 		RtRepo1 + "/a3.in",
 		RtRepo1 + "/a1.in",
 		RtRepo1 + "/b",
 		RtRepo1 + "/d",
+		RtRepo1 + "/",
+	}
+}
+
+func GetExpectedExcludeUploadWithAntExcludeContentOnly2() []string {
+	return []string{
+		RtRepo1 + "/a2.in",
+		RtRepo1 + "/a3.in",
+		RtRepo1 + "/a1.in",
+		RtRepo1 + "/b2.in",
+		RtRepo1 + "/b3.in",
+		RtRepo1 + "/b1.in",
+		RtRepo1 + "/c2.in",
+		RtRepo1 + "/c3.in",
+		RtRepo1 + "/d",
+		RtRepo1 + "/c",
 		RtRepo1 + "/",
 	}
 }

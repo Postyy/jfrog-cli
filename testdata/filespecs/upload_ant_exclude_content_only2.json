@@ -1,0 +1,14 @@
+{
+  "files": [
+    {
+      "pattern": "testdata/a/**",
+      "ant": "true",
+      "target": "${REPO1}",
+      "includeDirs": "true",
+      "antExcludeContentOnly": "true",
+      "exclusions": [
+        "testdata/a/b**"
+      ]
+    }
+  ]
+}

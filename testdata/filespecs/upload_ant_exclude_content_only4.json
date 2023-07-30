@@ -1,0 +1,14 @@
+{
+  "files": [
+    {
+      "pattern": "*testdata/excludeAnt/aa/**",
+      "ant": "true",
+      "target": "${REPO1}",
+      "includeDirs": "true",
+      "antExcludeContentOnly": "true",
+      "exclusions": [
+        "**/cc/**"
+      ]
+    }
+  ]
+}

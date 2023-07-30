@@ -5,8 +5,10 @@
       "ant": "true",
       "target": "${REPO1}",
       "includeDirs": "true",
-      "skipExcludeBasePattern": "true",
-      "exclusions": ["testdata/a/b**"]
+      "antExcludeContentOnly": "true",
+      "exclusions": [
+        "testdata/a/b/**"
+      ]
     }
   ]
 }
